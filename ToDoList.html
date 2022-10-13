@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<form >
+		<label for="ToDo">What needs to get done?</label><br>
+		<input type="text" id="ToDo" name="ToDo"><br>
+		<input type="button" id="insert" value="Submit" >
+		<input type="button" id="remove" value="Remove" >
+	  </form>
+
+
+   
+		<h2>Shopping List</h2>
+		<ul id="list">
+			<li>Ramen</li>
+			<li>Coffee</li>
+			<li>Poptarts</li>
+			<li>Twinkies</li>
+		</ul>
+
+	<script>
+     
+		
+		function putInList(){
+			let uL = document.querySelector('ul')
+			let userInput = document.getElementById("ToDo").value
+
+			let Li = document.createElement("li");
+			Li.innerHTML = userInput
+			uL.appendChild(Li)
+		}
+
+		function remove(){
+			let uL = document.querySelector('ul')
+			let userInput = document.getElementById("ToDo").value
+			let Li = document.createElement("li");
+			let items = document.querySelectorAll("#list li");
+
+			uL.removeChild(items[items.length-1]);
+
+		}
+		document.querySelector('#insert').onclick = putInList;
+		document.querySelector("#remove").onclick= remove;
+
+        
+    </script>
+
+</body>
+</html>
